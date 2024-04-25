@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>여러 사이트 링크</title>
+<style>
+  body {
+    background-color: #F1F5F8; /* 따듯하고 편안한 색상 */
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  .container {
+    text-align: center;
+    margin-top: -50px; /* 글씨와 버튼을 조금 위로 올립니다. */
+  }
+  h1 {
+    color: #333333;
+    font-size: 32px;
+    margin-bottom: 10px;
+  }
+  p {
+    color: #666666;
+    font-size: 18px;
+    margin-bottom: 30px;
+  }
+  button {
+    background-color: #A3D8FF; /* 파스텔 톤 버튼 배경색 */
+    color: black;
+    padding: 20px 30px;
+    font-size: 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+  }
+  button:hover {
+    background-color: #80C6FF; /* 파스텔 톤 버튼 호버 배경색 */
+  }
+</style>
+<script>
+function openMultipleSites() {
+    window.open("https://www.acmicpc.net/step", "_blank", "noopener,noreferrer");
+    window.open("https://www.onlinegdb.com/online_python_compiler", "_blank", "noopener,noreferrer");
+    window.open("https://chat.openai.com/auth/login", "_blank", "noopener,noreferrer");
+    window.open("https://www.youtube.com/", "_blank", "noopener,noreferrer");
+}
+</script>
+</head>
+<body>
+
+<div class="container">
+  <h1>백준, 유튜브, 챗GPT, 파이썬 컴파일러</h1>
+  <p>아래 버튼을 클릭하여 네 개의 사이트로 이동</p>
+  <button onclick="openMultipleSites()">클릭</button>
+</div>
+
+</body>
+</html>

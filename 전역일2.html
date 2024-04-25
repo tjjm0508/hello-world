@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>육군 전역일 계산기</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #dbe7e4; /* 연한 시원한 블루 */
+            color: #000; /* 검은색 */
+            padding: 50px 20px; /* 위 아래 패딩을 크게 조정 */
+            text-align: center;
+        }
+
+        h1 {
+            color: #000; /* 검은색 */
+            margin-bottom: 30px; /* 제목과 입력란 사이 간격을 늘림 */
+        }
+
+        label {
+            display: block;
+            margin-bottom: 20px; /* 입력란과 결과란 사이 간격을 늘림 */
+            color: #000; /* 검은색 */
+        }
+
+        input[type="date"] {
+            padding: 10px;
+            font-size: 16px;
+            border: 2px solid #85a1a7; /* 연한 청색 */
+            border-radius: 5px;
+            margin-bottom: 20px; /* 입력란과 결과란 사이 간격을 늘림 */
+        }
+
+        #result {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #4d7580; /* 시원한 블루 */
+        }
+    </style>
+</head>
+<body>
+    <h1>육군 전역일 계산기</h1>
+    <label for="inputDate">전역일을 입력하세요:</label>
+    <input type="date" id="inputDate">
+    <br>
+    <p id="result"></p>
+
+    <script>
+        function updateRemainingTime() {
+            var inputDate = document.getElementById("inputDate").value;
+
+            // 입력란이 비어 있으면 계산하지 않음
+            if (inputDate === "") {
+                document.getElementById("result").innerText = "";
+                return;
+            }
+
+            var today = new Date();
+            var endDate = new Date(inputDate);
+            var diffTime = endDate - today;
+            var diffSeconds = Math.ceil(diffTime / 1000);
+
+            var remainingDays = Math.floor(diffSeconds / (24 * 3600));
+            var remainingHours = Math.floor((diffSeconds % (24 * 3600)) / 3600);
+            var remainingMinutes = Math.floor((diffSeconds % 3600) / 60);
+            var remainingSeconds = diffSeconds % 60;
+
+            document.getElementById("result").innerText = "전역일까지 " + remainingDays + "일 " + remainingHours + "시간 " + remainingMinutes + "분 " + remainingSeconds + "초 남았습니다.";
+        }
+
+        // 1초마다 남은 시간 업데이트
+        setInterval(updateRemainingTime, 1000);
+    </script>
+</body>
+</html>
